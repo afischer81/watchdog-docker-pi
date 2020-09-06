@@ -1,0 +1,8 @@
+host;service;protocol;port;request;action
+raspi1;ssh;tcp;22;;http://192.168.1.135/cm?cmnd=Power2%200,http://192.168.1.135/cm?cmnd=Power2%201
+raspi1;grafana;http;3000;;
+raspi1;mysql;tcp;3306;;
+raspi1;nzbget;http;6789;;
+raspi1;influxdb;tcp;8086;;
+raspi1;prometheus;http;9099;;
+raspi1;node_exporter;tcp;9100;;

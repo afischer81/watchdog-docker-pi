@@ -1,0 +1,6 @@
+{
+    "ssh_user":"pi",
+    "ssh_password":"raspberry",
+    "telegram_token": "YourTelegramToken",
+    "telegram_chatid": YourTeleGramChatId
+}
