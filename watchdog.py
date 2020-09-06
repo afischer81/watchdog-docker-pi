@@ -17,8 +17,6 @@ delay = 1
 timeout = 2
 
 def send_telegram_message(token, chatid, message):
-    #bot_token = '1008179966:AAHGDHrOgrzY2V2P7ElOfZ_HwPyfxdz718U'
-    #bot_chatID = -457130248
     send_text = 'https://api.telegram.org/bot{}/sendMessage?chat_id={}&parse_mode=Markdown&text={}'.format(token, chatid, message)
     response = requests.get(send_text)
     return response.json()
@@ -81,14 +79,13 @@ def check_ssh_login(host, user, password):
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('-c', '--config', default='watchdog.json', help='config file')
 parser.add_argument('-d', '--debug', action='store_true', help='debug execution')
-parser.add_argument('-t', '--test', default='', help='test at given time HH:MM')
 parser.add_argument('files', nargs='+', help='host/service definition list (CSV format)')
 args = parser.parse_args(sys.argv[1:])
 
 self = os.path.basename(sys.argv[0])
 myName = os.path.splitext(self)[0]
 log = logging.getLogger(myName)
-logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S', filename='/var/log/watchdog.log')
 if args.debug:
     log.setLevel(logging.DEBUG)
 else:
