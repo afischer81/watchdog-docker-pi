@@ -8,3 +8,5 @@ RUN apt update -y && \
 ENV PYTHONPATH /usr/lib/python3/dist-packages
 
 WORKDIR /home
+
+ENV TZ Europe/Berlin
